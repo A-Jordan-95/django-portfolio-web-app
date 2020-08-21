@@ -3,3 +3,9 @@
 
 #ignore config.toml:
 *config.toml
+
+#ignore cloud_sql_proxy:
+cloud_sql_proxy
+
+#ignore nohup.out:
+nohup.out

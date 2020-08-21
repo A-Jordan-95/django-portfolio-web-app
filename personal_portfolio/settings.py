@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import toml
+import os
 #process secret config vars:
 config = toml.load('/home/ajordan12295/django-portfolio-web-app/personal_portfolio/config/config.toml')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -81,7 +82,8 @@ WSGI_APPLICATION = 'personal_portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': config['DATABASE']['HOST'],
+        'HOST': '127.0.0.1',
+	'PORT': '3306',
         'NAME': config['DATABASE']['NAME'],
         'USER': config['DATABASE']['USER'],
         'PASSWORD': config['DATABASE']['PASSWORD'],
@@ -126,3 +128,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
