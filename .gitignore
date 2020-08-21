@@ -1,5 +1,5 @@
 #ignore pycache info:
 *pycache*
 
-#ignore config.ini:
-config.ini
+#ignore config.toml:
+*config.toml
