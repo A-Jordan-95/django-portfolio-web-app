@@ -9,3 +9,9 @@ cloud_sql_proxy
 
 #ignore nohup.out:
 nohup.out
+
+#ignore logs:
+logs/
+
+#ignore run:
+run/

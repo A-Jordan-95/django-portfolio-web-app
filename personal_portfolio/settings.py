@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import toml
-import os
 #process secret config vars:
 config = toml.load('/home/ajordan12295/django-portfolio-web-app/personal_portfolio/config/config.toml')
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +27,7 @@ SECRET_KEY = config['APP']['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['35.192.157.232', '127.0.0.1']
+ALLOWED_HOSTS = ['35.192.157.232', '127.0.0.1', 'alexjordan.page', 'www.alexjordan.page']
 
 
 # Application definition
@@ -129,4 +128,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = '../static/'
