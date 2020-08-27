@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+<div class="row">
+{% for home in home %}
+    <h1>{{ home.title }}</h1>
+    <div class="col-md-4">
+        <div class="card mb-2">
+	    <div class="card-body">
+	        <h5 class="card-title">Login with Google or Github account:</h5>
+                <a href="{{ home.login }}"
+                    class="btn btn-primary">
+                     Login
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <div class="card-body">
+                <h5 class="card-title">My Development Blog:</h5>
+        	<a href="{{ home.blog }}"
+            	    class="btn btn-primary">
+              	     Blog
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <div class="card-body"> 
+                <h5 class="card-title">My Project Portfolio:</h5>
+        	<a href="{{ home.portfolio }}"
+           	    class="btn btn-primary">
+                     Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <div class="card-body">
+        	<h5 class="card-title">My Github Profile:</h5>
+        	<a href="{{ home.github }}"
+            	    class="btn btn-primary">
+              	     Github
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <div class="card-body">     
+        	<h5 class="card-title">My LinkedIn Profile:</h5>
+        	<a href="{{ home.linkedin }}"
+            	    class="btn btn-primary">
+              	     LinkedIn
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
