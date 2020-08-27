@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'projects',
     'blog',
     'home',
+    'social_django',
+    'privacypolicy',
 ]
 
 MIDDLEWARE = [
@@ -108,6 +110,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+#OAuth backends:
+authentication_backends = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 
 # Internationalization

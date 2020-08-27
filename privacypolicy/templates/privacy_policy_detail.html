@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block page_content %}
+
+<div class="col-md-8 offset-md-2">
+    {% for privacy_policy in privacy_policy %}
+        <h1>{{ privacy_policy.title }}</h1>
+        <small>
+            {{ privacy_policy.last_modified.date }} |&nbsp;
+        </small>
+        <p>{{ privacy_policy.body | linebreaks }}</p>
+    {% endfor %}
+</div>
+{% endblock %}
