@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = config['APP']['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['35.192.157.232', '127.0.0.1', 'alexjordan.page', 'www.alexjordan.page']
 
@@ -69,6 +69,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -112,11 +114,16 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 #OAuth backends:
-authentication_backends = (
+AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
-
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config['GOOGLEAUTH']['KEY']
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config['GOOGLEAUTH']['SECRET']
+LOGIN_URL = 'auth/login/google-oauth2/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/

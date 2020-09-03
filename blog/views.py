@@ -39,7 +39,7 @@ def blog_detail(request, pk):
     comments = Comment.objects.filter(post=post)
     context = {
         "post" : post,
-        "comments" : comments,
-        "form" : form,
+        "comments" : comments if request.user.is_authenticated else [],
+        "form" : form if request.user.is_authenticated else [],
     }
     return render(request, "blog_detail.html", context)

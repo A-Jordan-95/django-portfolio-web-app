@@ -5,17 +5,21 @@
 <div class="row">
 {% for home in home %}
     <h1>{{ home.title }}</h1>
-    <div class="col-md-4">
-        <div class="card mb-2">
-	    <div class="card-body">
-	        <h5 class="card-title">Login with Google or Github account:</h5>
-                <a href="{{ home.login }}"
-                    class="btn btn-primary">
-                     Login
-                </a>
+    {% if user.is_authenticated %}
+
+    {% else %}
+        <div class="col-md-4">
+            <div class="card mb-2">
+	        <div class="card-body">
+	            <h5 class="card-title">Login with Google account:</h5>
+                    <a href="{% url "social:begin" "google-oauth2" %}"
+                        class="btn btn-primary">
+                         Login
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
+    {% endif %}
     <div class="col-md-4">
         <div class="card mb-2">
             <div class="card-body">
